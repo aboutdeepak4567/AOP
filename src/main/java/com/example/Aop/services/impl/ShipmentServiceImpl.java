@@ -20,7 +20,13 @@ public class ShipmentServiceImpl implements ShipmentService {
     }
 
     @Override
-    public String trackpackage(Long orderId) {
-        return "";
+    public String trackPackage(Long orderId) {
+        try {
+            log.info("Tracking the order...");
+            Thread.sleep(500);
+            throw new RuntimeException("Exception occurred during trackPackage");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
